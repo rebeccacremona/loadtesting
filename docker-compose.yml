@@ -1,9 +1,3 @@
-# To start Docker in Swarm mode, you need to run `docker swarm init`
-# To deploy the Grid, `docker stack deploy -c docker-compose.yml grid`
-# Stop with `docker stack rm grid`
-
-# "build" isn't supported in swarm mode, so build loadtester separately
-
 version: '3.7'
 
 services:
@@ -25,7 +19,6 @@ services:
     entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
 
   tester:
-    build: ./
     image: loadtester:0.1
     tty: true
     # command: bash
